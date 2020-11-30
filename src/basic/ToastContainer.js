@@ -127,8 +127,7 @@ class ToastContainer extends Component {
       buttonTextStyle: config.buttonTextStyle,
       buttonStyle: config.buttonStyle,
       textStyle: config.textStyle,
-      onClose: config.onClose,
-      swipeDisabled: config.swipeDisabled || false
+      onClose: config.onClose
     });
     // If we have a toast already open, cut off its close timeout so that it won't affect *this* toast.
     if (this.closeTimeout) {
@@ -175,7 +174,7 @@ class ToastContainer extends Component {
       const { x, y } = this.state.pan;
       return (
         <Animated.View
-          {...this.state.swipeDisabled ? {} : this._panResponder.panHandlers}
+          {...this._panResponder.panHandlers}
           style={[
             this.getToastStyle(),
             { transform: [{ translateX: x }, { translateY: y }] }
